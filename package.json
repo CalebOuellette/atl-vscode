@@ -1,0 +1,25 @@
+{
+    "name": "atl",
+    "displayName": "atl",
+    "description": "Language support for atl",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.29.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "atl",
+            "aliases": ["A Teaching Language", "atl"],
+            "extensions": [".atl"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "atl",
+            "scopeName": "text.atl",
+            "path": "./syntaxes/atl.tmLanguage.json"
+        }]
+    }
+}

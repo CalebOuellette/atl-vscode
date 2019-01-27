@@ -1,0 +1,91 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "A Teaching Language",
+	"patterns": [
+    {
+      "include": "#comments"
+    },
+		{
+			"include": "#reservedWords"
+		},
+		{
+			"include": "#intConstants"
+    },
+    {
+      "include": "#functions"
+    },
+    {
+		  "include": "#identifiers"
+    },
+    {
+      "include": "#strings"
+    }, 
+    {
+      "include": "#assignOps"
+    }, 
+    {
+      "include": "#extraOps"
+    }
+	],
+	"repository": {
+    "comments":{
+      "patterns": [{
+        "name": "comment.block.atl",
+        "begin": "(\\(\\*)",
+        "end": "(\\*\\))",
+        	"patterns": [{
+        	  "include": "#comments"
+        	}]
+      }
+      ]
+    },
+		"reservedWords": {
+			"patterns": [{
+				  "name": "keyword.atl",
+				  "match": "(?i)\\b(do|if|is|of|or|and|end|not|else|then|type|array|begin|elsif|until|value|while|repeat|return|returns|program|variable|function|procedure)\\b"
+        }]
+    },
+    "intConstants": {
+      "patterns": [{
+        "name": "constant.numeric.atl",
+        "match": "([0-9]+)"
+      }]
+    },
+    "functions": {
+      "patterns": [{
+        "name": "entity.name.function.atl",
+        "match": "[A-Za-z][A-Za-z0-9_]*(?=\\s*\\()"
+      }]
+    },
+    "identifiers":{
+      "patterns": [{
+        "name": "variable.atl",
+        "match": "[A-Za-z][A-Za-z0-9_]*"
+      }]
+    },
+		"strings": {
+			"name": "string.quoted.double.atl",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.atl",
+					"match": "\\\\."
+				}
+			]
+    },
+    "assignOps": {
+      "patterns": [{
+        "name": "keyword.operator.atl",
+        "match": "<--"
+      }]
+    },
+    "extraOps": {
+      "patterns": [{
+        "name": "keyword.operator.atl",
+        "match": "[+|-|*|/|mod|=|!=|<|<=|>|>=]"
+      }]
+    }
+	},
+	"scopeName": "text.atl"
+}
